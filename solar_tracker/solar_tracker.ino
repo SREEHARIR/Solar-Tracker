@@ -61,6 +61,50 @@ void loop()
   Serial.print("  ");
   Serial.println();
 //  delay(500);
-    
+     if (-1*tol > dvert || dvert > tol) // check if the diffirence is in the tolerance else change vertical angle
+  {
+    if (avt > avd)
+    {
+      servov = ++servov;
+       if (servov > 180) 
+       { 
+        servov = 180;
+      }
+   }
+    else if (avt < avd)
+    {
+      servov= --servov;
+      if (servov < 0)
+      {
+        servov = 0;
+      }
+    }
+    vertical.write(servov);
+  }
+  
+  if (-1*tol > dhoriz || dhoriz > tol) // check if the diffirence is in the tolerance else change horizontal angle
+  {
+    if (avl > avr)
+    {
+      servoh = --servoh;
+      if (servoh < 0)
+      {
+      servoh = 0;
+      }
+    }
+    else if (avl < avr)
+    {
+      servoh = ++servoh;
+      if (servoh > 180)
+      {
+        servoh = 180;
+      }
+    }
+    else if (avl = avr)
+    {
+      // nothing
+    }
+    horizontal.write(servoh);
+  }
 
 }
