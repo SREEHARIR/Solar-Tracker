@@ -37,4 +37,30 @@ void loop()
   int avl = (lt + ld) / 2; // average value left
   int avr = (rt + rd) / 2; // average value right
   
+
+    //int dtime = analogRead(4)/20; // read potentiometers  
+  //int tol = analogRead(5)/4;
+
+  int dtime = 12;
+  int tol=20;
+  
+  int dvert = avt - avd; // check the diffirence of up and down
+  int dhoriz = avl - avr;// check the diffirence og left and rigt
+  
+  Serial.print(lt);
+  Serial.print("  ");
+  Serial.print(rt);
+  Serial.print("  ");
+  Serial.print(ld);
+  Serial.print("  ");
+  Serial.print(rd);
+  Serial.print("  ");
+  Serial.print(dtime);
+  Serial.print("  ");
+  Serial.print(tol);
+  Serial.print("  ");
+  Serial.println();
+//  delay(500);
+    
+
 }
