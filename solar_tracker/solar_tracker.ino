@@ -107,4 +107,5 @@ void loop()
     horizontal.write(servoh);
   }
 
+  delay(dtime); 
 }
